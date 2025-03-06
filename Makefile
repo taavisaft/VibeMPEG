@@ -1,7 +1,7 @@
 NASM=nasm
 CC=gcc
-NASMFLAGS=-f macho64
-LDFLAGS=
+NASMFLAGS=-f macho64 -g -F dwarf
+LDFLAGS=-arch x86_64 -Wl,-no_pie
 
 TARGET=vibempeg
 SOURCES=vibempeg.asm

@@ -39,3 +39,7 @@ All core processing is implemented in hand-optimized assembly for maximum perfor
 ## License
 
 MIT License
+
+## PSA (the only thing in this whole project that a human wrote)
+
+The code generated here is probably a big pile of shit and should not be used anywhere.
