@@ -1,21 +1,17 @@
-NASM=nasm
-CC=gcc
-NASMFLAGS=-f macho64 -g -F dwarf
-LDFLAGS=-arch x86_64 -Wl,-no_pie
+CC = gcc
+ASM = nasm
+CFLAGS = -arch x86_64 -Wl,-no_pie
+ASMFLAGS = -f macho64 -g -F dwarf
 
-TARGET=vibempeg
-SOURCES=vibempeg.asm
-OBJECTS=$(SOURCES:.asm=.o)
+all: vibempeg
 
-all: $(TARGET)
+vibempeg: vibempeg.o
+	$(CC) $(CFLAGS) $^ -o $@
 
-%.o: %.asm
-	$(NASM) $(NASMFLAGS) $< -o $@
-
-$(TARGET): $(OBJECTS)
-	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
+vibempeg.o: vibempeg.asm
+	$(ASM) $(ASMFLAGS) $< -o $@
 
 clean:
-	rm -f $(OBJECTS) $(TARGET)
+	rm -f vibempeg.o vibempeg
 
 .PHONY: all clean
