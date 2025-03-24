@@ -1,10 +1,10 @@
 # VibeMPEG
 
-A lightning-fast MOV to MP4 video converter written in pure assembly.
+A minimal MOV to MP4 video converter written in pure assembly.
 
 ## Features
-- Direct MOV to MP4 conversion
-- Optimized assembly implementation
+- Basic MOV to MP4 file copying
+- Pure assembly implementation
 - Minimal memory footprint
 - Zero dependencies
 
@@ -27,14 +27,14 @@ make
 
 ## Implementation Details
 
-VibeMPEG implements its own video codec for converting QuickTime MOV container format to MP4 container format. The implementation:
+VibeMPEG currently implements basic file copying functionality. The implementation:
 
-1. Parses MOV container format
-2. Decodes video frames
-3. Re-encodes to H.264 compatible format
-4. Packages into MP4 container
+1. Opens input MOV file
+2. Opens output MP4 file
+3. Copies data in 4KB chunks
+4. Handles basic error conditions
 
-All core processing is implemented in hand-optimized assembly for maximum performance.
+All core processing is implemented in assembly for minimal overhead.
 
 ## License
 
